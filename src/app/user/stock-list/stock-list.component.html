@@ -1,1 +1,23 @@
-<p>stock-list works!</p>
+<table style="color: purple" border="1px" width="100%">
+  <tr>
+    <th>&nbsp;Số thứ tự&nbsp;</th>
+    <th>&nbsp;Mã cổ phiếu&nbsp;</th>
+    <th>&nbsp;Công ty&nbsp;</th>
+    <th>&nbsp;Vốn hóa thị trường&nbsp;</th>
+    <th>&nbsp;Ngành&nbsp;</th>
+    <th>&nbsp;Lĩnh vực&nbsp;</th>
+    <th>&nbsp;Thứ hạng&nbsp;</th>
+    <th>&nbsp;Trạng thái&nbsp;</th>
+  </tr>
+  <tr *ngFor="let stock of stocks index as i">
+    <td>&nbsp;{{i + 1}}</td>
+    <td>&nbsp;{{stock?.symbol}}</td>
+    <td>&nbsp;{{stock?.companyName}}</td>
+    <td>&nbsp;{{stock?.marketCap}}</td>
+    <td>&nbsp;{{stock?.sector}}</td>
+    <td>&nbsp;{{stock?.industry}}</td>
+    <td>&nbsp;{{stock?.ranks}}</td>
+    <td style="color: red" *ngIf="stock?.status == 'OFFLINE'">&nbsp;{{stock?.status}}</td>
+    <td style="color: #0ac70a" *ngIf="stock?.status == 'ONLINE'">&nbsp;{{stock?.status}}</td>
+  </tr>
+</table>
